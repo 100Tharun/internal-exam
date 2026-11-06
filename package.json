@@ -1,0 +1,14 @@
+{
+  "name": "employee-payroll-management-system",
+  "version": "1.0.0",
+  "description": "Employee and monthly payroll management system built with HTML, CSS, JavaScript, Node.js and Express.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}

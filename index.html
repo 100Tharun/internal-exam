@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayDesk | Employee Payroll</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">P</span><span>PayDesk<small>PAYROLL MANAGER</small></span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-item active" data-page="dashboard"><span>▦</span> Dashboard</button>
+      <button class="nav-item" data-page="employees"><span>♙</span> Employees</button>
+      <button class="nav-item" data-page="salary"><span>₹</span> Salary Setup</button>
+      <button class="nav-item" data-page="payroll"><span>▤</span> Monthly Payroll</button>
+      <button class="nav-item" data-page="reports"><span>▥</span> Salary Reports</button>
+      <a class="nav-item" href="/about.html"><span>ⓘ</span> About Us</a>
+      <div class="sidebar-bottom"><div class="admin-avatar">A</div><div><strong>Administrator</strong><small>System Admin</small></div></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="eyebrow">PAYROLL WORKSPACE</p><h1 id="page-title">Dashboard</h1></div>
+        <div class="topbar-right"><span class="live-dot"></span><span>System ready</span><div class="top-avatar">AD</div></div>
+      </header>
+
+      <section class="page active" id="dashboard-page">
+        <div class="welcome-row"><div><h2>Good day, Admin 👋</h2><p>Here is your employee payroll overview.</p></div><button class="primary-btn" data-go="payroll">＋ Generate payroll</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total employees</span><span class="stat-icon purple">♙</span></div><strong id="total-employees">0</strong><small>Registered employees</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Payroll records</span><span class="stat-icon blue">▤</span></div><strong id="total-payrolls">0</strong><small>Monthly payroll entries</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Total paid</span><span class="stat-icon green">₹</span></div><strong id="total-paid">₹0.00</strong><small>Across paid payrolls</small></article>
+        </div>
+        <div class="panel"><div class="panel-heading"><div><h3>Recent payroll activity</h3><p>Latest generated salary records</p></div><button class="text-btn" data-go="payroll">View all →</button></div>
+          <div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>MONTH</th><th>NET SALARY</th><th>STATUS</th></tr></thead><tbody id="recent-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="page" id="employees-page">
+        <div class="section-heading"><div><h2>Employee records</h2><p>Add, update and maintain employee information.</p></div><button class="primary-btn" id="show-employee-form">＋ Add employee</button></div>
+        <div class="panel form-panel hidden" id="employee-form-panel"><div class="panel-heading"><div><h3 id="employee-form-title">Add new employee</h3><p>Enter the employee's details below.</p></div><button class="close-btn" id="cancel-employee">✕</button></div>
+          <form id="employee-form" class="form-grid">
+            <input type="hidden" id="employee-id">
+            <label>Full name *<input id="emp-name" required maxlength="100" placeholder="e.g. Priya Kumar"></label>
+            <label>Phone number<input id="emp-phone" maxlength="50" placeholder="Phone number"></label>
+            <label>Department *<input id="emp-department" required placeholder="e.g. Engineering"></label>
+            <label>Designation *<input id="emp-designation" required placeholder="e.g. Software Developer"></label>
+            <label>Email address<input id="emp-email" type="email" placeholder="name@example.com"></label>
+            <label>Joining date<input id="emp-date" type="date"></label>
+            <div class="form-actions"><button type="button" class="secondary-btn" id="cancel-employee-2">Cancel</button><button class="primary-btn" type="submit">Save employee</button></div>
+          </form>
+        </div>
+        <div class="panel"><div class="toolbar"><input class="search-input" id="employee-search" placeholder="⌕  Search employees..."><span id="employee-count" class="muted"></span></div>
+          <div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>DEPARTMENT</th><th>DESIGNATION</th><th>PHONE</th><th>BASIC SALARY</th><th>ACTIONS</th></tr></thead><tbody id="employees-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="page" id="salary-page">
+        <div class="section-heading"><div><h2>Salary setup</h2><p>Define basic salary, allowances and deductions for employees.</p></div></div>
+        <div class="panel form-panel"><div class="panel-heading"><div><h3>Configure employee salary</h3><p>Net salary = Basic salary + Allowance − Deduction</p></div></div>
+          <form id="salary-form" class="form-grid">
+            <label class="full-width">Select employee *<select id="salary-employee" required><option value="">Choose employee</option></select></label>
+            <label>Basic salary (₹) *<input id="basic-salary" type="number" min="0" step="0.01" required placeholder="0.00"></label>
+            <label>Allowance (₹)<input id="allowance" type="number" min="0" step="0.01" value="0"></label>
+            <label>Deduction (₹)<input id="deduction" type="number" min="0" step="0.01" value="0"></label>
+            <div class="salary-preview"><span>Calculated net salary</span><strong id="net-preview">₹0.00</strong></div>
+            <div class="form-actions"><button class="primary-btn" type="submit">Save salary details</button></div>
+          </form>
+        </div>
+        <div class="panel"><div class="panel-heading"><div><h3>Salary history</h3><p>Saved salary configurations</p></div></div><div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>BASIC</th><th>ALLOWANCE</th><th>DEDUCTION</th><th>NET SALARY</th></tr></thead><tbody id="salary-table"></tbody></table></div></div>
+      </section>
+
+      <section class="page" id="payroll-page">
+        <div class="section-heading"><div><h2>Monthly payroll</h2><p>Generate monthly payroll and track payment status.</p></div></div>
+        <div class="panel form-panel"><div class="panel-heading"><div><h3>Generate payroll</h3><p>Uses the latest saved salary details for the selected employee.</p></div></div>
+          <form id="payroll-form" class="form-grid">
+            <label>Employee *<select id="payroll-employee" required><option value="">Choose employee</option></select></label>
+            <label>Month *<select id="payroll-month" required><option value="">Select month</option></select></label>
+            <label>Year *<input id="payroll-year" type="number" min="2000" max="2100" required></label>
+            <label>Payment status<select id="payroll-status"><option>Pending</option><option>Paid</option></select></label>
+            <label>Payment date<input id="payment-date" type="date"></label>
+            <div class="form-actions"><button class="primary-btn" type="submit">Generate payroll</button></div>
+          </form>
+        </div>
+        <div class="panel"><div class="panel-heading"><div><h3>Payroll records</h3><p>All generated monthly payroll entries</p></div></div><div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>PERIOD</th><th>BASIC</th><th>ALLOWANCE</th><th>DEDUCTION</th><th>NET SALARY</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="payroll-table"></tbody></table></div></div>
+      </section>
+
+      <section class="page" id="reports-page">
+        <div class="section-heading"><div><h2>Salary reports</h2><p>Filter payroll records and print or export your report.</p></div><button class="primary-btn" id="export-report">↓ Export CSV</button></div>
+        <div class="panel"><div class="report-filters"><label>Month<select id="report-month"><option value="">All months</option></select></label><label>Year<input id="report-year" type="number" placeholder="All years"></label><button class="secondary-btn" id="filter-report">Apply filters</button><button class="text-btn" id="print-report">Print report</button></div>
+          <div class="report-total"><span>Net payroll total</span><strong id="report-total">₹0.00</strong></div>
+          <div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>DEPARTMENT</th><th>PERIOD</th><th>BASIC</th><th>ALLOWANCE</th><th>DEDUCTION</th><th>NET SALARY</th><th>STATUS</th></tr></thead><tbody id="reports-table"></tbody></table></div>
+        </div>
+      </section>
+      <div id="toast" class="toast"></div>
+      <footer>PayDesk · Employee Payroll Management System</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

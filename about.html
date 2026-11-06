@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | PayDesk</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-wrap{max-width:760px;margin:35px auto}
+    .about-card{background:#fff;border:1px solid #e9edf2;border-radius:14px;padding:30px}
+    .about-mark{width:64px;height:64px;border-radius:18px;background:#f0efff;color:#6658d3;display:grid;place-items:center;font:800 28px Manrope;margin-bottom:20px}
+    .about-card h2{font:800 22px Manrope;margin:0 0 8px}
+    .about-card p{color:#7b8797;line-height:1.7}
+    .detail-row{padding:13px 0;border-bottom:1px solid #eef0f4;display:flex;justify-content:space-between;gap:20px}
+    .detail-row:last-child{border-bottom:0}.detail-row span{color:#7b8797}.detail-row strong{text-align:right}
+    .back-link{display:inline-block;margin-bottom:18px;color:#6658d3;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">P</span><span>PayDesk<small>PAYROLL MANAGER</small></span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <a class="nav-item" href="/">▦ &nbsp; Dashboard</a>
+      <a class="nav-item" href="/#employees">♙ &nbsp; Employees</a>
+      <a class="nav-item" href="/#salary">₹ &nbsp; Salary Setup</a>
+      <a class="nav-item" href="/#payroll">▤ &nbsp; Monthly Payroll</a>
+      <a class="nav-item" href="/#reports">▥ &nbsp; Salary Reports</a>
+      <a class="nav-item active" href="/about.html">ⓘ &nbsp; About Us</a>
+      <div class="sidebar-bottom"><div class="admin-avatar">A</div><div><strong>Administrator</strong><small>System Admin</small></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="eyebrow">PAYROLL WORKSPACE</p><h1>About Us</h1></div>
+        <div class="topbar-right"><span class="live-dot"></span><span>System ready</span><div class="top-avatar">AD</div></div>
+      </header>
+      <div class="about-wrap">
+        <a class="back-link" href="/">← Back to dashboard</a>
+        <section class="about-card">
+          <div class="about-mark">P</div>
+          <p class="eyebrow">ABOUT THE PROJECT</p>
+          <h2>Employee Payroll Management System</h2>
+          <p>PayDesk is a web-based project designed to help an administrator maintain employee information, manage salary details, calculate net salary and generate monthly payroll reports.</p>
+          <div class="detail-row"><span>Project title</span><strong>Employee Payroll Management System</strong></div>
+          <div class="detail-row"><span>Developed by</span><strong>T. Tharunkumar Reddy</strong></div>
+          <div class="detail-row"><span>Project type</span><strong>Full-stack web application</strong></div>
+          <div class="detail-row"><span>Frontend</span><strong>HTML, CSS, JavaScript</strong></div>
+          <div class="detail-row"><span>Backend</span><strong>Node.js and Express.js</strong></div>
+          <div class="detail-row"><span>Database</span><strong>SQLite</strong></div>
+        </section>
+      </div>
+      <footer>PayDesk · Employee Payroll Management System</footer>
+    </main>
+  </div>
+</body>
+</html>
